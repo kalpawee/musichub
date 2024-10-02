@@ -27,19 +27,6 @@ Route::get('/happenings', [HomeController::class, 'happenings'])->name('happenin
 Route::get('/book-event', function () {return view('book-event');})->name('book-event');
 
 
-use App\Http\Controllers\ExploreController;
-
-//Map routes
-Route::get('/explore-sri-lanka', [ExploreController::class, 'index'])->name('explore.sri.lanka');
-
-// Route for fetching top items based on district ID
-Route::get('/district-items/{district}', [ExploreController::class, 'getDistrictItems'])->name('district.items');
-
-Route::get('/explore-sri-lanka/items/{district}', [ExploreController::class, 'getItemsByDistrict']);
-Route::get('/explore-sri-lanka', [ExploreController::class, 'exploreSriLanka']);
-Route::get('/explore-sri-lanka', [ExploreController::class, 'exploreSriLanka'])->name('explore.sri.lanka');
-
-
 
 
 use App\Http\Controllers\ProfileController;
@@ -113,41 +100,11 @@ Route::put('/host/profile/update-password', function (Request $request) {
 
 // Routes for Creating and Managing Attractions
 use App\Http\Controllers\Host\ItemController;
-use App\Http\Controllers\Host\EventController;
 use App\Http\Controllers\Host\DashboardController;
-/*
-Route::middleware(['auth:host'])->prefix('host')->name('host.')->group(function () {
-    Route::get('/dashboard', [ItemController::class, 'index'])->name('dashboard');
-    Route::get('/items/create/{type}', [ItemController::class, 'create'])->name('items.create');
-    Route::post('/items/store', [ItemController::class, 'store'])->name('items.store');
-    Route::get('/items/{item}', [ItemController::class, 'show'])->name('items.show');
-    Route::delete('/items/{item}', [ItemController::class, 'destroy'])->name('items.destroy');
-});
-
-// Routes for editing and updating item (Attractions)
-Route::get('/host/items/{item}/edit', [ItemController::class, 'edit'])->name('host.items.edit');
-Route::put('/host/items/{item}', [ItemController::class, 'update'])->name('host.items.update');*/
-/*
-// Events Routes
-
-Route::middleware(['auth:host'])->prefix('host')->name('host.')->group(function () {
-    Route::get('/dashboard', [EventController::class, 'index'])->name('dashboard');
-    Route::get('events/create/{type}', [EventController::class, 'create'])->name('events.create');
-    Route::post('events/store', [EventController::class, 'store'])->name('events.store');
-    Route::get('events/{event}/edit', [EventController::class, 'edit'])->name('host.events.edit');
-    Route::put('events/{event}', [EventController::class, 'update'])->name('host.events.update');
-    Route::delete('events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
-});*/
 
 Route::middleware(['auth:host'])->group(function () {
     Route::get('/host/dashboard', [DashboardController::class, 'index'])->name('host.dashboard');
 
-    // Routes for events
-    Route::get('/host/events/create', [EventController::class, 'create'])->name('host.events.create');
-    Route::post('/host/events/store', [EventController::class, 'store'])->name('host.events.store');
-    Route::get('/host/events/{event}/edit', [EventController::class, 'edit'])->name('host.events.edit');
-    Route::put('/host/events/{event}', [EventController::class, 'update'])->name('host.events.update');
-    Route::delete('/host/events/{event}', [EventController::class, 'destroy'])->name('host.events.destroy');
 
     // Routes for items
     Route::get('/host/items/create/{type}', [ItemController::class, 'create'])->name('host.items.create');
@@ -165,8 +122,6 @@ Route::middleware(['auth:host'])->group(function () {
 
 //Routes to make displayed content clickable
 Route::get('/item/{id}', [ItemController::class, 'showDetails'])->name('item.details');
-Route::get('/event/{id}', [EventController::class, 'showDetails'])->name('event.details');
-
 
 // Middleware for user authentication
 Route::middleware([
@@ -195,13 +150,11 @@ Route::delete('/item/{item}/review/{review}', [ReviewController::class, 'destroy
 Route::get('/filter-items/{categoryId}', [ItemController::class, 'filterItems'])->name('filter.items');
 
 // Route to filter events based on category
-Route::get('/filter-events/{categoryId}', [EventController::class, 'filterEvents'])->name('filter.events');
 
 // Route to handle filter and pagination for items (attractions)
 Route::get('/filter-items-paginated', [ItemController::class, 'filterItemsPaginated'])->name('filter.items.paginated');
 
 //Route to handle filtering in happenings
-Route::get('/filter-happenings-paginated', [EventController::class, 'filterHappeningsPaginated'])->name('filter.happenings.paginated');
 
 
 Route::post('/items/{item}/like', [ItemController::class, 'like'])->name('items.like');
