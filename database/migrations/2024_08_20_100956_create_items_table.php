@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('small_description');
             $table->string('location');
             $table->string('link')->nullable();
+            $table->date('date')->nullable();
             $table->string('thumbnail_image')->nullable();
             $table->string('cover_photo')->nullable();
             $table->text('large_description');

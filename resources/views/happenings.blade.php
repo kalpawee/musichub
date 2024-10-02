@@ -2,29 +2,29 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="banner relative h-[60vh] bg-cover bg-center" style="background-image: url('{{ asset('images/happeningshero.png') }}');">
+    <section class="banner relative h-[60vh] bg-cover bg-center" style="background-image: url('{{ asset('images/news.png') }}');">
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
         <div class="relative z-10 flex flex-col justify-center items-start h-full text-white px-12">
-            <h1 class="text-2xl md:text-2xl lg:text-2xl font-bold">What's Happening</h1>
-            <p class="text-lg md:text-xl lg:text-2xl mt-4">Discover Sri Lanka's hidden gems with our top picks.</p>
+            <h1 class="text-2xl md:text-2xl lg:text-2xl font-bold">Up Coming Events And News </h1>
+
         </div>
     </section>
 
     <!-- Year and Month Filter Section -->
     <section class="p-6">
-        <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="bg-white text-black p-6 rounded-lg shadow-md" style="background-color: #e3b0b0">
             <!-- Year and Month Selection -->
             <div class="flex justify-center items-center mb-4">
-                <button id="prev-year-btn" class="px-3 py-1 bg-gray-200 text-gray-600 font-semibold rounded-l-lg">
+                <button id="prev-year-btn" class="px-3 py-1 bg-gray-200 text-black font-semibold rounded-l-lg">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <span id="selected-year" class="px-6 py-2 bg-white text-gray-700 font-semibold">2024</span>
-                <button id="next-year-btn" class="px-3 py-1 bg-gray-200 text-gray-600 font-semibold rounded-r-lg">
+                <span id="selected-year" class="px-6 py-2  text-black font-semibold">2024</span>
+                <button id="next-year-btn" class="px-3 py-1 bg-gray-200 text-black font-semibold rounded-r-lg">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
 
-            <div class="flex justify-center gap-2 mb-6" id="month-buttons">
+            <div class="flex justify-center text-white gap-2 mb-6" id="month-buttons">
                 <button class="month-button px-4 py-2 text-sm font-semibold border rounded-full cursor-pointer" data-month="1">Jan</button>
                 <button class="month-button px-4 py-2 text-sm font-semibold border rounded-full cursor-pointer" data-month="2">Feb</button>
                 <button class="month-button px-4 py-2 text-sm font-semibold border rounded-full cursor-pointer" data-month="3">Mar</button>
@@ -38,53 +38,71 @@
                 <button class="month-button px-4 py-2 text-sm font-semibold border rounded-full cursor-pointer" data-month="11">Nov</button>
                 <button class="month-button px-4 py-2 text-sm font-semibold border rounded-full cursor-pointer" data-month="12">Dec</button>
             </div>
-        </div>
-    </section>
-
-    <!-- Categories Filter Section -->
-    <section class="p-6">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-            <!-- Categories Filter -->
-            <div id="categories" class="flex flex-wrap gap-2 mb-4">
-                <button type="button"
-                        class="category-button inline-block px-3 py-1 text-sm font-semibold border rounded-full cursor-pointer selected"
-                        data-category-id="all"
-                        style="border-color: #333; color: #fff; background-color: #333;">
-                    All
-                </button>
-                @foreach ($categories as $category)
-                    <button type="button"
-                            class="category-button inline-block px-3 py-1 text-sm font-semibold border rounded-full cursor-pointer"
-                            data-category-id="{{ $category->id }}"
-                            style="border-color: #333; color: #333;">
-                        {{ $category->name }}
-                    </button>
-                @endforeach
-            </div>
 
             <!-- Events Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="events-grid">
-                @foreach ($events as $event)
-                    <div class="bg-white p-4 rounded-lg shadow-md">
-                        @if ($event->thumbnail_image)
-                            <img src="{{ asset($event->thumbnail_image) }}" alt="{{ $event->title }}" class="w-full h-32 object-cover mb-4 rounded">
-                        @endif
-                        <h3 class="text-lg font-bold mb-2">{{ $event->title }}</h3>
-                        <p class="text-gray-700 text-sm mb-2">{{ Str::limit($event->small_description, 100) }}</p>
-                        <p class="text-sm text-gray-500 mb-2">Location: {{ $event->location }}</p>
-                        <p class="text-sm text-gray-500 mb-2">Category: {{ $event->categories->pluck('name')->join(', ') }}</p>
-                    </div>
-                @endforeach
+                <!-- Items will be dynamically inserted here -->
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- News Section -->
+    <section class="p-6">
+        <div class="bg-white text-black p-6 rounded-lg shadow-md" style="background-color: #e3b0b0">
+            <!-- News section header -->
+            <h1 class="justify-center text-2xl font-bold mb-4 text-center">News</h1>
+
+            <!-- Article 1 -->
+            <div class="flex mb-4">
+                <img src="{{ asset('images/logo-1.png') }}" alt="Concert Announcement" class="w-1/3 h-32 rounded-md mr-4">
+                <div class="w-2/3">
+                    <h2 class="text-xl font-semibold">Exciting Concert Coming Up!</h2>
+                    <p class="text-gray-600">Join us for an unforgettable night of live music featuring top bands in the area! Get your tickets now.</p>
+                </div>
             </div>
 
-            <!-- View More Button -->
-            <div class="mt-6 text-center">
-                <button id="view-more-btn" class="bg-black text-white font-bold py-2 px-4 rounded">
-                    View More
-                </button>
+            <!-- Article 2 -->
+            <div class="flex mb-4">
+                <img src="{{ asset('images/logo-1.png') }}" alt="New Album Release" class="w-1/3 h-32 rounded-md mr-4">
+                <div class="w-2/3">
+                    <h2 class="text-xl font-semibold">New Album Release: The Soundtrack of Summer</h2>
+                    <p class="text-gray-600">Check out the latest album from local artist Jane Doe, now available on all streaming platforms!</p>
+                </div>
+            </div>
+
+            <!-- Article 3 -->
+            <div class="flex mb-4">
+                <img src="{{ asset('images/logo-1.png') }}" alt="Music Festival Announcement" class="w-1/3 h-32 rounded-md mr-4">
+                <div class="w-2/3">
+                    <h2 class="text-xl font-semibold">Annual Music Fiesta Festival Announced</h2>
+                    <p class="text-gray-600">The Music Fiesta Hub is excited to announce this year’s festival, featuring food, fun, and fantastic performances!</p>
+                </div>
+            </div>
+
+            <!-- Article 4 -->
+            <div class="flex mb-4">
+                <img src="{{ asset('images/logo-1.png') }}" alt="Band Interview" class="w-1/3 h-32 rounded-md mr-4">
+                <div class="w-2/3">
+                    <h2 class="text-xl font-semibold">Exclusive Interview with Local Band: The Soundwaves</h2>
+                    <p class="text-gray-600">Read our exclusive interview with The Soundwaves as they discuss their musical journey and future plans!</p>
+                </div>
+            </div>
+
+            <!-- Article 5 -->
+            <div class="flex">
+                <img src="{{ asset('images/logo-1.png') }}" alt="Music Workshops" class="w-1/3 h-32 rounded-md mr-4">
+                <div class="w-2/3">
+                    <h2 class="text-xl font-semibold">Upcoming Music Workshops</h2>
+                    <p class="text-gray-600">Sign up for our music workshops and learn from industry professionals. Perfect for all skill levels!</p>
+                </div>
             </div>
         </div>
     </section>
+
+
+
 @endsection
 
 @push('scripts')
@@ -102,33 +120,21 @@
             const prevYearBtn = document.getElementById('prev-year-btn');
             const nextYearBtn = document.getElementById('next-year-btn');
 
-            // Handle Category Filtering
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    categoryButtons.forEach(btn => {
-                        btn.classList.remove('selected');
-                        btn.style.backgroundColor = '';
-                        btn.style.color = '#333';
-                    });
-
-                    this.classList.add('selected');
-                    this.style.backgroundColor = '#333';
-                    this.style.color = '#fff';
-
-                    selectedCategory = this.getAttribute('data-category-id');
-                    offset = 0; // Reset offset
-                    loadEvents(selectedCategory, selectedYear, selectedMonth, offset, true);
-                });
-            });
 
             // Handle Month Selection
             monthButtons.forEach(button => {
                 button.addEventListener('click', function () {
-                    monthButtons.forEach(btn => btn.classList.remove('selected'));
+                    monthButtons.forEach(btn => {
+                        btn.classList.remove('selected')
+                        btn.style.backgroundColor = '';
+                        btn.style.color = '#eaeff4';
+                    });
                     this.classList.add('selected');
+                    this.style.backgroundColor = '#d6b3b3';
+                    this.style.color = '#fff';
                     selectedMonth = this.getAttribute('data-month');
                     offset = 0; // Reset offset
-                    loadEvents(selectedCategory, selectedYear, selectedMonth, offset, true);
+                    loadItemsByDate(selectedYear, selectedMonth, offset, true);
                 });
             });
 
@@ -137,48 +143,52 @@
                 selectedYear--;
                 yearSpan.textContent = selectedYear;
                 offset = 0;
-                loadEvents(selectedCategory, selectedYear, selectedMonth, offset, true);
+                loadItemsByDate( selectedYear, selectedMonth, offset, true);
             });
 
             nextYearBtn.addEventListener('click', function () {
                 selectedYear++;
                 yearSpan.textContent = selectedYear;
                 offset = 0;
-                loadEvents(selectedCategory, selectedYear, selectedMonth, offset, true);
+                loadItemsByDate(selectedYear, selectedMonth, offset, true);
             });
 
-            // Handle "View More" button click
-            viewMoreBtn.addEventListener('click', function () {
-                loadEvents(selectedCategory, selectedYear, selectedMonth, offset);
-            });
 
-            // Function to Load Events
-            function loadEvents(categoryId, year, month, offset, reset = false) {
-                fetch(`/filter-happenings-paginated?category_id=${categoryId}&year=${year}&month=${month}&offset=${offset}`)
+
+            // Function to Load Items by Date
+            function loadItemsByDate(year, month, offset, reset = false) {
+                fetch(`/filter-items-by-date?year=${year}&month=${month}&offset=${offset}`)
                     .then(response => response.json())
                     .then(data => {
                         const grid = document.getElementById('events-grid');
 
                         if (reset) {
-                            grid.innerHTML = '';  // Clear existing events when filtering
+                            grid.innerHTML = '';  // Clear existing items when filtering
                         }
 
-                        data.forEach(event => {
+                        data.forEach(item => {
                             grid.innerHTML += `
-                                <div class="bg-white p-4 rounded-lg shadow-md">
-                                    <img src="/${event.thumbnail_image}" alt="${event.title}" class="w-full h-32 object-cover mb-4 rounded">
-                                    <h3 class="text-lg font-bold mb-2">${event.title}</h3>
-                                    <p class="text-gray-700 text-sm mb-2">${event.small_description}</p>
-                                    <p class="text-sm text-gray-500 mb-2">Location: ${event.location}</p>
-                                    <p class="text-sm text-gray-500 mb-2">Category: ${event.categories.map(category => category.name).join(', ')}</p>
-                                </div>
+                                <a href="/item/${item.id}" class="block">
+                                    <div class="bg-white p-4 rounded-lg shadow-md">
+                                        <img src="/${item.thumbnail_image}" alt="${item.title}" class="w-full h-32 object-cover mb-4 rounded">
+                                        <h3 class="text-lg font-bold mb-2">${item.title}</h3>
+                                        <p class="text-gray-700 text-sm mb-2">${item.small_description}</p>
+                                        <p class="text-sm text-gray-500 mb-2">Location: ${item.location}</p>
+                                        <p class="text-sm text-gray-500 mb-2">Category: ${item.categories.map(c => c.name).join(', ')}</p>
+                                        <p class="text-sm text-gray-500 mb-2">Date: ${item.date}</p>
+                                    </div>
+                                </a>
                             `;
                         });
 
                         offset += 8;  // Increment the offset for "View More"
                     })
-                    .catch(error => console.error('Error fetching events:', error));
+                    .catch(error => console.error('Error fetching items:', error));
             }
+
+
+            // Initial load
+            loadItemsByDate(selectedYear, selectedMonth, offset, true);
 
         });
     </script>

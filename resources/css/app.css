@@ -10,6 +10,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: #cbd5e0;
+
 }
 
 input, select {
@@ -20,16 +22,14 @@ input, select {
 button {
     border-radius: 32px;
     padding: 0.5rem 1rem;
+    background-color: #cbd5e0;
+
 }
 
 form {
     border-radius: 32px;
 }
 
-.map-container {
-    width: 50%;
-    margin: 0 auto;
-}
 
 .item-card {
     border: 1px solid #ddd;
@@ -42,13 +42,3 @@ form {
     height: auto;
 }
 
-.map-container path {
-    fill: none;
-    stroke: #000; /* Set stroke color */
-    stroke-width: 1px; /* Define border width */
-    cursor: pointer; /* Indicate clickable area */
-}
-
-.map-container path:hover {
-    fill: #f0f0f0; /* Highlight fill when hovered */
-}

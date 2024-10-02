@@ -52,52 +52,22 @@
                 </form>
             </div>
 
-            <!-- Update Website URL -->
+            <!-- Update Email -->
             <div class="mt-6">
-                <h3 class="text-lg font-semibold text-gray-800">Website</h3>
-                <form method="POST" action="{{ route('host.profile.update') }}">
+                <h3 class="text-lg font-semibold text-gray-800">Change Email</h3>
+                <form method="POST" action="{{ route('host.profile.update-email') }}">
                     @csrf
+                    @method('PUT')
                     <div class="mt-4">
-                        <input type="url" name="website_url" id="website_url" value="{{ old('website_url', auth()->user()->website_url) }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400">
+                        <input id="email" name="email" type="email" value="{{ auth()->user()->email }}" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400">
                     </div>
                     <div class="mt-4">
-                        <button type="submit" class="px-4 py-2 font-semibold text-white rounded-md" style="background-color: #FE793D;">Update Website</button>
+                        <button type="submit" class="px-4 py-2 font-semibold text-white rounded-md" style="background-color: #FE793D;">Update Email</button>
                     </div>
                 </form>
+
             </div>
 
-            <!-- Update Social Media Links -->
-            <div class="mt-6">
-                <h3 class="text-lg font-semibold text-gray-800">Social Media Links</h3>
-                <form method="POST" action="{{ route('host.profile.update') }}">
-                    @csrf
-                    <div class="mt-4">
-                        <label for="instagram_url" class="block text-sm font-medium text-gray-700">Instagram</label>
-                        <input type="url" name="instagram_url" id="instagram_url" value="{{ old('instagram_url', auth()->user()->instagram_url) }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400">
-                    </div>
-                    <div class="mt-4">
-                        <label for="facebook_url" class="block text-sm font-medium text-gray-700">Facebook</label>
-                        <input type="url" name="facebook_url" id="facebook_url" value="{{ old('facebook_url', auth()->user()->facebook_url) }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400">
-                    </div>
-                    <div class="mt-4">
-                        <button type="submit" class="px-4 py-2 font-semibold text-white rounded-md" style="background-color: #FE793D;">Update Social Media Links</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Update Bio -->
-            <div class="mt-6">
-                <h3 class="text-lg font-semibold text-gray-800">Bio</h3>
-                <form method="POST" action="{{ route('host.profile.update') }}">
-                    @csrf
-                    <div class="mt-4">
-                        <textarea name="bio" id="bio" maxlength="250" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400">{{ old('bio', auth()->user()->bio) }}</textarea>
-                    </div>
-                    <div class="mt-4">
-                        <button type="submit" class="px-4 py-2 font-semibold text-white rounded-md" style="background-color: #FE793D;">Update Bio</button>
-                    </div>
-                </form>
-            </div>
 
             <!-- Update Password -->
             <div class="mt-6">

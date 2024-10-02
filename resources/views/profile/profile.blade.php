@@ -26,15 +26,13 @@
                         @endforeach
                     </div>
                 </div>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100" style="background-color: #9ca3af">Logout</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- Saved Items Section -->
-    <section class="p-6">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Saved Items</h2>
-            <p>Saved items feature coming soon...</p>
-        </div>
-    </section>
+
 @endsection

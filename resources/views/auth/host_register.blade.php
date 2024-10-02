@@ -1,12 +1,12 @@
 <x-guest-layout>
-    <div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center c">
         <div class="w-full max-w-md p-8 bg-white rounded-[32px] shadow-md">
             <div class="flex justify-center">
                 <a href="{{ route('home') }}">
                     <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-20 w-20">
                 </a>
             </div>
-            <h2 class="text-2xl font-bold text-center text-gray-900">Sign Up</h2>
+            <h2 class="text-2xl font-bold text-center text-gray-900">Admin Sign Up</h2>
             <form method="POST" action="{{ route('host.register') }}">
                 @csrf
 
@@ -33,7 +33,7 @@
                         <input id="password_confirmation" name="password_confirmation" type="password" placeholder="Confirm Password" required class="w-full px-3 py-2 border border-gray-300 rounded-[32px] focus:outline-none focus:ring-2 focus:ring-orange-400">
                     </div>
                     <div>
-                        <button type="submit" class="w-full px-4 py-2 font-semibold text-white rounded-[32px]" style="background-color: #FE793D;">Sign Up</button>
+                        <button type="submit" class="w-full px-4 py-2 font-semibold text-white rounded-[32px]" style="background-color: #054560;">Sign Up</button>
                     </div>
                 </div>
             </form>

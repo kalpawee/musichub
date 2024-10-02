@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="min-h-screen bg-blue-950 flex items-center justify-center ">
         <div class="w-full max-w-md p-8 bg-white rounded-[32px] shadow-md">
             <div class="flex justify-center">
                 <a href="{{ route('home') }}">
@@ -28,7 +28,7 @@
                         <input id="password" name="password" type="password" placeholder="Password" required class="w-full px-3 py-2 border border-gray-300 rounded-[32px] focus:outline-none focus:ring-2 focus:ring-orange-400">
                     </div>
                     <div>
-                        <button type="submit" class="w-full px-4 py-2 font-semibold text-white rounded-[32px]" style="background-color: #FE793D;">Sign In</button>
+                        <button type="submit" class="w-full px-4 py-2 font-semibold text-white rounded-[32px]" style="background-color: #054560">Sign In</button>
                     </div>
                 </div>
             </form>
@@ -37,7 +37,10 @@
                 <a href="{{ route('password.request') }}" class="text-sm text-gray-600 hover:text-gray-900">Forgot your password?</a>
             </div>
             <div class="mt-2 text-center">
-                <a href="{{ route('register') }}" class="text-sm text-gray-600 hover:text-gray-900">Don't have an account? Sign Up</a>
+                <a href="{{ route('register') }}" class="text-sm text-gray-600 hover:text-gray-900">Don't have an User account? Sign Up</a>
+            </div>
+            <div class="mt-2 text-center">
+                <a href="{{ route('host.login') }}" class="text-sm text-gray-600 hover:text-gray-900">Admin Sign In</a>
             </div>
         </div>
     </div>

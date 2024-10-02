@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Host;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\Like;
 use App\Models\Category;
+use App\Models\Location;
 use App\Models\Gallery;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class ItemController extends Controller
@@ -52,6 +54,7 @@ class ItemController extends Controller
         $item->small_description = $request->small_description;
         $item->location = $request->location;
         $item->link = $request->link;
+        $item->date = $request->date;
         $item->large_description = $request->large_description;
         $item->host_id = auth()->id();
 
@@ -153,6 +156,7 @@ class ItemController extends Controller
         $item->small_description = $request->small_description;
         $item->location = $request->location;
         $item->link = $request->link;
+        $item->date = $request->date;
         $item->large_description = $request->large_description;
         $item->save();
 
@@ -176,6 +180,22 @@ class ItemController extends Controller
         return redirect()->route('host.dashboard')->with('status', 'Attraction updated successfully!');
     }
 
+    public function filterItemsByDate(Request $request)
+    {
+        $year = $request->query('year');
+        $month = $request->query('month');
+        $offset = $request->query('offset', 0);
+
+        $items = Item::whereYear('date', $year)
+            ->whereMonth('date', $month)
+            ->skip($offset)
+            ->take(8)
+            ->with('categories')
+            ->get();
+
+        return response()->json($items);
+    }
+
     public function destroy(Item $item)
     {
         // Ensuring the item belongs to the authenticated host
@@ -192,6 +212,23 @@ class ItemController extends Controller
     {
         $item = Item::with('categories')->findOrFail($id); // Fetch the item with its categories
         return view('item.details', compact('item')); // Pass the item to the view
+    }
+
+    public function showItems(Request $request)
+    {
+        // Fetch distinct locations from the items table
+        $locations = Item::select('location')->distinct()->get();
+
+        // Fetch items based on the selected location
+        $selectedLocation = $request->query('location', 'all');
+        if ($selectedLocation === 'all') {
+            $items = Item::with('categories')->get();
+        } else {
+            $items = Item::where('location', $selectedLocation)->with('categories')->get();
+        }
+
+        // Pass the locations and items to the view
+        return view('music', compact('locations', 'items', 'selectedLocation'));
     }
 
     public function filterItems($categoryId)
@@ -223,6 +260,28 @@ class ItemController extends Controller
         }
 
         return response()->json($items);
+    }
+
+    //likes
+    public function like($itemId)
+    {
+        $item = Item::findOrFail($itemId);
+
+        // Check if the user has already liked the item
+        $like = Like::where('user_id', Auth::id())->where('item_id', $itemId)->first();
+
+        if ($like) {
+            // Unlike the item
+            $like->delete();
+        } else {
+            // Like the item
+            Like::create([
+                'user_id' => Auth::id(),
+                'item_id' => $itemId,
+            ]);
+        }
+
+        return redirect()->back();
     }
 
 

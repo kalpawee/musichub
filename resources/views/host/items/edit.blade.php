@@ -60,6 +60,7 @@
                 <input type="url" id="link" name="link" value="{{ $item->link }}" class="w-full p-3 border rounded-md focus:ring focus:ring-orange-500">
             </div>
 
+
             <!-- Categories -->
             <div class="mb-4">
                 <label for="categories" class="block text-gray-700 font-medium mb-2">Categories</label>
@@ -69,7 +70,7 @@
                             <button type="button"
                                     class="category-button inline-block px-3 py-1 text-sm font-semibold border rounded-full cursor-pointer"
                                     data-category-id="{{ $category->id }}"
-                                    style="border-color: #333; color: #333;">
+                                    style="border-color: #d57070; color: #e4d3d3;">
                                 {{ $category->name }}
                             </button>
                         @endforeach

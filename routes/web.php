@@ -22,8 +22,9 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/filter-items/{categoryId}', [HomeController::class, 'filterItems']);
-Route::get('/things-to-do', [HomeController::class, 'thingsToDo'])->name('things.to.do');
+Route::get('/music', [HomeController::class, 'music'])->name('music');
 Route::get('/happenings', [HomeController::class, 'happenings'])->name('happenings');
+Route::get('/book-event', function () {return view('book-event');})->name('book-event');
 
 
 use App\Http\Controllers\ExploreController;
@@ -202,3 +203,9 @@ Route::get('/filter-items-paginated', [ItemController::class, 'filterItemsPagina
 //Route to handle filtering in happenings
 Route::get('/filter-happenings-paginated', [EventController::class, 'filterHappeningsPaginated'])->name('filter.happenings.paginated');
 
+
+Route::post('/items/{item}/like', [ItemController::class, 'like'])->name('items.like');
+
+Route::get('/filter-items-by-date', [ItemController::class, 'filterItemsByDate']);
+
+Route::get('/music', [ItemController::class, 'showItems'])->name('music');

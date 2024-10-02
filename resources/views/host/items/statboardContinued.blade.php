@@ -7,19 +7,10 @@
         <!-- Total Stats Section -->
         <div class="grid grid-cols-3 gap-4 mb-8">
             <div class="bg-white p-4 rounded-lg shadow">
-                <h2 class="text-lg font-semibold">Total Attractions</h2>
+                <h2 class="text-lg font-semibold">Total Events</h2>
                 <p class="text-2xl">{{ $totalAttractions }}</p>
             </div>
 
-            <div class="bg-white p-4 rounded-lg shadow">
-                <h2 class="text-lg font-semibold">Total Events</h2>
-                <p class="text-2xl">{{ $totalEvents }}</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-lg shadow">
-                <h2 class="text-lg font-semibold">Total Guides</h2>
-                <p class="text-2xl">{{ $totalGuides }}</p>
-            </div>
         </div>
 
         <!-- Total Reviews Section -->
@@ -83,7 +74,7 @@
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
-                events: @json($upcomingEvents)
+                events: @json($upcomingItems)
             });
             calendar.render();
         });

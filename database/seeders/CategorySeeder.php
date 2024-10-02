@@ -10,21 +10,19 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            'Arts & Culture',
-            'History',
-            'Food & Beverages',
-            'Nature',
-            'Wild Life',
-            'Shopping',
-            'Sports',
-            'Music',
-            'Family Fun',
-            'Wellness',
-            'Hiking & Trekking',
-            'Religious & Spiritual',
-            'Festivals',
-            'City Life',
-            'Night Life'
+            'Concerts',
+            'Music Festivals',
+            'Club Nights',
+            'DJ Sets',
+            'Open Mic Nights',
+            'Battle of the Bands',
+            'Acoustic Sessions',
+            'Opera',
+            'Album Release Parties',
+            'Charity Concerts',
+            'Silent Discos',
+            'Music Awards Shows',
+            'Music Conferences',
         ];
 
         foreach ($categories as $category) {

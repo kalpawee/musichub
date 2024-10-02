@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     protected $fillable = [
-        'title', 'small_description', 'location', 'link', 'large_description', 'host_id', 'thumbnail_image', 'gallery_image_1', 'gallery_image_2', 'gallery_image_3', 'gallery_image_4',
+        'title', 'small_description', 'location', 'link','date', 'large_description', 'host_id', 'thumbnail_image', 'gallery_image_1', 'gallery_image_2', 'gallery_image_3', 'gallery_image_4',
     ];
 
     public function categories()
@@ -19,9 +19,17 @@ class Item extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class);
+
+
+    }
+
+    //likes
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 
 
 
 }
-//This is the model for the Attractions, it was incorrectly named Item and has remained so due to inability to adjust this late.
+

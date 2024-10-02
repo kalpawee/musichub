@@ -44,12 +44,12 @@ class HomeController extends Controller
         return response()->json(['events' => $events]);
     }
 
-    public function thingsToDo()
+    public function music()
     {
         $categories = Category::all();
         $items = Item::with('categories')->take(8)->get(); // Fetch first 8 items
 
-        return view('thingstodo', compact('categories', 'items'));
+        return view('music', compact('categories', 'items'));
     }
 
     public function happenings()

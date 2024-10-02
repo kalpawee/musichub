@@ -80,7 +80,7 @@
             <a href="">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-10">
             </a>
-            <h1 class="ml-4 text-xl font-semibold text-gray-900">Host Portal</h1>
+            <h1 class="ml-4 text-xl font-semibold text-gray-900">Admin Portal</h1>
         </div>
         <div class="flex items-center">
             <button id="sidebar-toggle" class="md:hidden text-gray-500 focus:outline-none mr-4">
@@ -103,20 +103,10 @@
                         <a href="{{ route('host.statboard') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md">Dashboard</a>
                     </li>
                     <li class="mb-2">
-                        <a href="{{ route('host.dashboard') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md">My Items</a>
+                        <a href="{{ route('host.dashboard') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md">Events Created</a>
                     </li>
                     <li class="mb-2">
-                        <a href="{{ route('host.profile') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md">Profile</a>
-                    </li>
-                    <li class="relative mb-2 group">
-                        <button class="block px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md relative">
-                            Create Item
-                        </button>
-                        <ul class="absolute left-0 w-full bg-white shadow-lg rounded-md hidden group-hover:block z-10">
-                            <li><a href="{{ route('host.items.create', ['type' => 'attraction']) }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md">Attraction</a></li>
-                            <li><a href="{{ route('host.events.create', ['type' => 'attraction']) }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md">Event</a></li>
-                            <li><a href="" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md">Guide</a></li>
-                        </ul>
+                        <a href="{{ route('host.items.create', ['type' => 'attraction']) }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md">Create Events</a>
                     </li>
                     <li class="mb-2">
                         <a href="{{ route('host.reviews') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md">My Reviews</a>
@@ -144,13 +134,7 @@
 @livewireScripts
 @stack('scripts')
 
-<!-- Script for toggling the sidebar on mobile -->
-<script>
-    document.getElementById('sidebar-toggle').addEventListener('click', function () {
-        let sidebar = document.getElementById('sidebar');
-        sidebar.classList.toggle('hidden');
-        sidebar.classList.toggle('block');  // Sidebar appears as a block element
-    });
-</script>
+
+
 </body>
 </html>

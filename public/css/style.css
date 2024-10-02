@@ -1,6 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #052443;
     color: #333;
     margin: 0;
     padding: 0;
@@ -17,6 +17,7 @@ h1 {
     margin-bottom: 40px;
     font-size: 2.5em;
     font-weight: bold;
+    color: #fff;
 }
 
 h3 {

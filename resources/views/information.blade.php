@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Travel Tips</title>
+        <title>About Us</title>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
     <body>
@@ -14,141 +14,97 @@
 
             <!-- Information Section -->
             <div class="essential-info">
-                <h3>Essential Information</h3>
-                <p>Prepare for an unforgettable journey to Sri Lanka – get important information, tips, and advice to maximize your experience and make the most of your visit.</p>
+                <h3>About Music Fiesta Hub</h3>
+                <p>Welcome to Music Fiesta Hub, your ultimate destination for discovering the hottest music events, concerts, and festivals across Sri Lanka. We are passionate about connecting music lovers with their favorite artists, bands, and venues, making it easier to stay in the loop with the latest happenings in the vibrant Sri Lankan music scene.</p>
             </div>
 
-
-            <h1>Travel Tips</h1>
+            <h1>Our Mission</h1>
 
             <div class="tips">
-                <!-- Weather & Timezone -->
+
+                <!-- Our Vision -->
                 <div class="tip">
                     <div class="tip-icon">
-                        <img src="https://via.placeholder.com/80x80?text=Weather" alt="Weather Icon">
+                        <img src="https://via.placeholder.com/80x80?text=Vision" alt="Vision Icon">
                     </div>
                     <div class="tip-content">
-                        <h2>Weather & Timezone</h2>
-                        <p>Sri Lanka has a tropical climate with two main monsoon seasons. The southwest monsoon brings rain to the southern and western regions from May to September, while the northeast monsoon affects the northern and eastern regions from December to February. The country follows Sri Lanka Standard Time (GMT +5:30), so adjust your watches accordingly.</p>
+                        <h2>Our Vision</h2>
+                        <p>At Music Fiesta Hub, we aim to become the go-to platform for music enthusiasts, event organizers, and venues. We strive to create a dynamic community where fans can discover new music, attend unforgettable live performances, and share their experiences with fellow music lovers.</p>
                     </div>
                 </div>
 
-                <!-- Visa & Entry Requirements -->
+                <!-- Our Story -->
                 <div class="tip">
                     <div class="tip-icon">
-                        <img src="https://via.placeholder.com/80x80?text=Visa" alt="Visa Icon">
+                        <img src="https://via.placeholder.com/80x80?text=Story" alt="Story Icon">
                     </div>
                     <div class="tip-content">
-                        <h2>Visa & Entry Requirements</h2>
-                        <p>Most visitors to Sri Lanka need an Electronic Travel Authorization (ETA) before arrival. Be sure to check the specific visa requirements for your nationality and apply online in advance for a smooth entry.</p>
+                        <h2>Our Story</h2>
+                        <p>Founded by a team of music enthusiasts, Music Fiesta Hub was born out of the need to create a centralized space for music events in Sri Lanka. We noticed how difficult it was to find reliable and up-to-date information about concerts, festivals, and venues. So, we set out to build a platform where everyone—from hardcore fans to casual listeners—can explore, connect, and enjoy music events without missing a beat.</p>
                     </div>
                 </div>
 
-                <!-- Safe Drinking Water -->
+                <!-- What We Offer -->
                 <div class="tip">
                     <div class="tip-icon">
-                        <img src="https://via.placeholder.com/80x80?text=Water" alt="Water Icon">
+                        <img src="https://via.placeholder.com/80x80?text=Offer" alt="Offer Icon">
                     </div>
                     <div class="tip-content">
-                        <h2>Safe Drinking Water</h2>
-                        <p>Tap water in Sri Lanka is not recommended for drinking unless boiled or filtered. Bottled water is widely available and is a safer option for tourists.</p>
+                        <h2>What We Offer</h2>
+                        <p>We provide a comprehensive list of music events happening across various cities in Sri Lanka. Whether you’re looking for concerts, festivals, DJ nights, or intimate performances, Music Fiesta Hub offers detailed information on dates, venues, line-ups, and ticketing, so you never miss out on the best events.</p>
                     </div>
                 </div>
 
-                <!-- Power Plug -->
+                <!-- Our Team -->
                 <div class="tip">
                     <div class="tip-icon">
-                        <img src="https://via.placeholder.com/80x80?text=Power" alt="Power Plug Icon">
+                        <img src="https://via.placeholder.com/80x80?text=Team" alt="Team Icon">
                     </div>
                     <div class="tip-content">
-                        <h2>Power Plug</h2>
-                        <p>The standard voltage in Sri Lanka is 230V, and the frequency is 50Hz. You can use power plugs with three round pins or two round pins. Check if your devices are compatible or bring an adapter.</p>
+                        <h2>Our Team</h2>
+                        <p>We are a small, dedicated team of music lovers, event organizers, and tech experts. Our passion for music and technology drives us to continuously improve the platform, ensuring you have the best experience when searching for events, booking tickets, and discovering new artists.</p>
                     </div>
                 </div>
 
-                <!-- Language -->
+                <!-- Community Focus -->
                 <div class="tip">
                     <div class="tip-icon">
-                        <img src="https://via.placeholder.com/80x80?text=Language" alt="Language Icon">
+                        <img src="https://via.placeholder.com/80x80?text=Community" alt="Community Icon">
                     </div>
                     <div class="tip-content">
-                        <h2>Language</h2>
-                        <p>The official languages of Sri Lanka are Sinhala and Tamil. English is widely spoken, especially in tourist areas and cities, so communicating should not be difficult for visitors.</p>
+                        <h2>Community Focus</h2>
+                        <p>We believe in fostering a vibrant community of music lovers. Through Music Fiesta Hub, users can share event details, join discussions, and RSVP to their favorite events. We’re more than just an events platform—we’re a hub for Sri Lanka’s music culture.</p>
                     </div>
                 </div>
 
-                <!-- Smoking Area -->
+                <!-- Contact Us -->
                 <div class="tip">
                     <div class="tip-icon">
-                        <img src="https://via.placeholder.com/80x80?text=Smoking" alt="Smoking Icon">
+                        <img src="https://via.placeholder.com/80x80?text=Contact" alt="Contact Icon">
                     </div>
                     <div class="tip-content">
-                        <h2>Smoking Area</h2>
-                        <p>Smoking is banned in public places in Sri Lanka, including restaurants, public transport, and government buildings. Designated smoking areas are marked, so be sure to smoke only in these areas to avoid fines.</p>
+                        <h2>Contact Us</h2>
+                        <p>If you have any questions, need assistance, or want to collaborate with us, feel free to reach out. Our team is always ready to help you discover the best music events and make your experience unforgettable.</p>
+                        <p class="font-bold">Phone Number : 0987654</p>
+                        <p class="font-bold">Email : dummy@dumyy.com</p>
+                        <a href="#">Get in Touch →</a>
                     </div>
                 </div>
 
-
-                <!-- Useful Numbers -->
+                <!-- Follow Us -->
                 <div class="tip">
                     <div class="tip-icon">
-                        <img src="https://via.placeholder.com/80x80?text=Phone" alt="Phone Icon">
+                        <img src="https://via.placeholder.com/80x80?text=Social" alt="Social Icon">
                     </div>
                     <div class="tip-content">
-                        <h2>Useful Numbers</h2>
-                        <p><strong>Police:</strong> 119</p>
-                        <p><strong>Ambulance & Fire Brigade:</strong> 110</p>
-                        <p><strong>Flight Information:</strong> +94 11 225 2861</p>
+                        <h2>Follow Us</h2>
+                        <p>Stay updated on the latest events, exclusive promotions, and more by following us on social media. Join the Music Fiesta Hub community and never miss a beat!</p>
+                        <a href="#">Follow Us on Social Media →</a>
                     </div>
                 </div>
 
-                <!-- Prayer Facilities -->
-                <div class="tip">
-                    <div class="tip-icon">
-                        <img src="https://via.placeholder.com/80x80?text=Prayer" alt="Prayer Icon">
-                    </div>
-                    <div class="tip-content">
-                        <h2>Prayer Facilities</h2>
-                        <p>Sri Lanka is a diverse country with facilities for different religious practices. There are mosques, temples, and churches conveniently located in major cities. Please check with your hotel or local guides for prayer facilities.</p>
-                        <a href="#">FIND OUT MORE →</a>
-                    </div>
-                </div>
-
-                <!-- Wi-Fi -->
-                <div class="tip">
-                    <div class="tip-icon">
-                        <img src="https://via.placeholder.com/80x80?text=Wi-Fi" alt="Wi-Fi Icon">
-                    </div>
-                    <div class="tip-content">
-                        <h2>Wi-Fi</h2>
-                        <p>Visitors can access free Wi-Fi at selected public places such as airports and some cafes. For convenience, purchase a local SIM card with data or access Wi-Fi at your hotel.</p>
-                    </div>
-                </div>
-
-                <!-- Sri Lanka Visitor Centre -->
-                <div class="tip">
-                    <div class="tip-icon">
-                        <img src="https://via.placeholder.com/80x80?text=Info" alt="Info Icon">
-                    </div>
-                    <div class="tip-content">
-                        <h2>Sri Lanka Visitor Centre</h2>
-                        <p>If you need assistance or have any queries, drop by any of the Sri Lanka Tourist Information Centres. You can get help with planning itineraries, ticket bookings, and accommodation reservations.</p>
-                        <a href="#">FIND OUT MORE →</a>
-                    </div>
-                </div>
-
-                <!-- Public Dining Places -->
-                <div class="tip">
-                    <div class="tip-icon">
-                        <img src="https://via.placeholder.com/80x80?text=Dining" alt="Dining Icon">
-                    </div>
-                    <div class="tip-content">
-                        <h2>Public Dining Places</h2>
-                        <p>It’s considered polite to clean up after yourself in public dining places such as food courts and cafes. Many places offer tray return services. Please ensure you follow the local guidelines to maintain cleanliness.</p>
-                        <a href="#">FIND OUT MORE →</a>
-                    </div>
-                </div>
             </div>
         </div>
     </body>
+
 @endsection

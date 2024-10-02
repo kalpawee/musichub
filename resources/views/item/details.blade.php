@@ -2,10 +2,10 @@
 
 @section('content')
     <section class="p-6">
-        <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="bg-white p-6 rounded-lg shadow-md" style="background-color: #c1d3ef">
             <!-- Title and Average Rating -->
-            <div class="flex justify-between items-center mb-4">
-                <h1 class="text-3xl font-bold">{{ $item->title }}</h1>
+            <div class="flex justify-between text-black items-center mb-4">
+                <h1 class="text-3xl text-black font-bold">{{ $item->title }}</h1>
                 <p>
                     Average Rating:
                     @if ($item->reviews->count())
@@ -14,6 +14,30 @@
                         Not Rated Yet
                     @endif
                 </p>
+                @auth
+                <a href="{{ route('book-event') }}" class="px-4 py-2 bg-blue-500 text-white rounded" style="background-color: darkblue;">Book Now</a>
+                @else
+                <a href="{{ route('login') }}" class="px-4 py-2 bg-blue-500 text-black rounded" >Login to Book</a>
+                @endauth
+            </div>
+
+            <!-- Like Button -->
+            <div class="mb-4">
+                @auth
+                    <form action="{{ route('items.like', $item->id) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded">
+                            @if($item->likes->where('user_id', Auth::id())->count())
+                                Unlike
+                            @else
+                                Like
+                            @endif
+                        </button>
+                    </form>
+                @else
+                    <p class="text-black">Please <a href="{{ route('login') }}" style="color: #4280bd">log in</a> to like this item.</p>
+                @endauth
+                <p>{{ $item->likes->count() }} Likes</p>
             </div>
 
             <!-- Location -->
@@ -37,9 +61,12 @@
                 </p>
             @endif
 
+            <!-- add date here -->
+            <p class="text-lg text-gray-600 mb-4"><strong>Date:</strong> {{ $item->date }}</p>
+
             <!-- Large Description -->
             <div class="mb-6">
-                <h2 class="text-xl font-bold mb-2">Description</h2>
+                <h2 class="text-xl text-black font-bold mb-2">Description</h2>
                 <p class="text-gray-700">{{ $item->large_description }}</p>
             </div>
 
@@ -72,40 +99,67 @@
 
             <!-- Reviews & Ratings Section -->
             <section class="p-6 mt-8">
-                <h2 class="text-3xl font-bold mb-6">Reviews & Ratings</h2>
+                <h2 class="text-3xl text-black font-bold mb-6">Reviews & Ratings</h2>
 
                 <!-- Review Submission Form -->
                 @auth
                     <form action="{{ route('reviews.store', $item->id) }}" method="POST">
                         @csrf
                         <!-- Rating Dropdown -->
-                        <label for="rating" class="block text-lg mb-2">Your Rating:</label>
-                        <select name="rating" id="rating" class="block w-full mb-4 border rounded">
-                            <option value="1">1 Star</option>
-                            <option value="2">2 Stars</option>
-                            <option value="3">3 Stars</option>
-                            <option value="4">4 Stars</option>
-                            <option value="5">5 Stars</option>
-                        </select>
+                        <label for="rating" class="block text-black text-lg mb-2">Your Rating:</label>
+                        <div class="rating flex items-center space-x-2">
+                            <input type="radio" id="star1" name="rating" value="1" class="hidden" />
+                            <label for="star1" class="text-2xl cursor-pointer" title="1 star">★</label>
+
+                            <input type="radio" id="star2" name="rating" value="2" class="hidden" />
+                            <label for="star2" class="text-2xl cursor-pointer" title="2 stars">★</label>
+
+                            <input type="radio" id="star3" name="rating" value="3" class="hidden" />
+                            <label for="star3" class="text-2xl cursor-pointer" title="3 stars">★</label>
+
+                            <input type="radio" id="star4" name="rating" value="4" class="hidden" />
+                            <label for="star4" class="text-2xl cursor-pointer" title="4 stars">★</label>
+
+                            <input type="radio" id="star5" name="rating" value="5" class="hidden" />
+                            <label for="star5" class="text-2xl cursor-pointer" title="5 stars">★</label>
+                        </div>
+
+                        <!-- Optional CSS for styling the star selection -->
+                        <style>
+                            .rating input:checked ~ label {
+                                color: gray;
+                            }
+
+                            .rating label {
+                                color: gold;
+                            }
+
+                            .rating input:focus ~ label {
+                                outline: 2px solid blue;
+                            }
+                        </style>
+
+
+
 
                         <!-- Review Text Area (Optional) -->
                         <label for="review" class="block text-lg mb-2">Your Review (Optional):</label>
-                        <textarea name="review" id="review" rows="4" class="block w-full border rounded mb-4"></textarea>
+                        <textarea name="review" id="review" rows="4" class="block w-full text-black border rounded mb-4"></textarea>
 
                         <!-- Submit Button -->
-                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded" style="background-color: #FE793D;">Submit Review</button>
+                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded" style="background-color: #020243;">Submit Review</button>
                     </form>
                 @else
-                    <p>Please <a href="{{ route('login') }}" class="text-orange-500">log in</a> to submit a review.</p>
+                    <p class="text-black">Please <a href="{{ route('login') }}" style="color: #4280bd" >log in</a> to submit a review.</p>
                 @endauth
             </section>
 
             <!-- Display Existing Reviews -->
             <section class="p-6 mt-8">
-                <h3 class="text-2xl font-bold mb-4">User Reviews</h3>
+                <h3 class="text-2xl text-black font-bold mb-4">User Reviews</h3>
 
                 @forelse($item->reviews as $review)
-                    <div class="mb-6 p-4 border rounded-lg">
+                    <div class="mb-6 text-black p-4 border rounded-lg">
                         <div class="flex justify-between items-center">
                             <p class="text-sm text-gray-600">
                                 {{ $review->user->username }} - Rated: {{ $review->rating }} Stars

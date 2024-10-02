@@ -10,6 +10,16 @@ body, html {
     height: 100%;
     width: 100%;
     font-family: 'Poppins', sans-serif;
+    background-color: #010145;
+    color: #FFFFFF; /* White */
+}
+.category-button {
+    background-color: #4a7cb5;
+    color: #07090c;
+    border-radius: 32px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .top-bar {
@@ -17,7 +27,8 @@ body, html {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: white;
+    background: #010145; /* Dark Blue */
+    color: #FFFFFF; /* White */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 60px;
 }
@@ -36,7 +47,7 @@ body, html {
 
 .top-bar .menu a {
     text-decoration: none;
-    color: #333;
+    color: #FFFFFF; /* White */
     font-weight: 600;
 }
 
@@ -47,7 +58,7 @@ body, html {
 
 .top-bar .actions a {
     text-decoration: none;
-    color: #333;
+    color: #3a0909; /* White */
 }
 
 .banner {
@@ -137,7 +148,8 @@ body, html {
     display: flex;
     justify-content: space-between;
     padding: 20px 40px;
-    background: #f8f8f8;
+    background: #01010b; /* Dark Blue */
+    color: #FFFFFF; /* White */
     box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
     flex-wrap: wrap; /* Enable wrapping for responsiveness */
 }
@@ -152,7 +164,7 @@ body, html {
 .bottom-links .connect p,
 .bottom-links .legal p {
     font-weight: 900; /* Bolder text for titles */
-    color: #323232; /* Updated color */
+    color: #FFFFFF; /* Updated color */
 }
 
 .bottom-links .related-sites ul,

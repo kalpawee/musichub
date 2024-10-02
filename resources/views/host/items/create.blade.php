@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mx-auto p-6">
-        <h1 class="text-2xl font-bold mb-4">Create Attraction</h1>
+        <h1 class="text-2xl font-bold mb-4">Create Events</h1>
 
         <form action="{{ route('host.items.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -58,6 +58,11 @@
                 <input type="url" id="link" name="link" class="w-full p-3 border rounded-md focus:ring focus:ring-orange-500">
             </div>
 
+            <div class="mb-4">
+                <label for="date">Date</label>
+                <input type="date" name="date" id="date" class="form-control" value="{{ old('date', $item->date ?? '') }}">
+            </div>
+
             <!-- Thumbnail Image -->
             <div class="mb-4">
                 <label for="thumbnail_image" class="block text-gray-700 font-medium mb-2">Thumbnail Image</label>
@@ -96,9 +101,9 @@
                     <div id="categories" class="flex flex-wrap gap-2">
                         @foreach ($categories as $category)
                             <button type="button"
-                                    class="category-button inline-block px-3 py-1 text-sm font-semibold border rounded-full cursor-pointer"
+                                    class="category-button inline-block px-3 py-1 text-black bg-amber-50  text-sm font-semibold border rounded-full cursor-pointer"
                                     data-category-id="{{ $category->id }}"
-                                    style="border-color: #333; color: #333;">
+                                    style="border-color: #d57070; color: #e4d3d3;">
                                 {{ $category->name }}
                             </button>
                         @endforeach
